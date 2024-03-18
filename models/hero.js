@@ -9,6 +9,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Hero.belongsTo(models.Superpower, {
+        foreignKey: 'heroId',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+      });
     }
   }
   Hero.init(
@@ -22,14 +27,24 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(24),
         allowNull: false,
         field: 'realname',
+        unique: true,
       },
-      originDescription: { type: DataTypes.TEXT(128) },
-      catchPhrase: { type: DataTypes.TEXT(128) },
-      images: { type: DataTypes.BLOB },
+
+      originDescription: {
+        type: DataTypes.TEXT,
+        field: 'origin_desc',
+        allowNull: true,
+      },
+      catchPhrase: {
+        type: DataTypes.TEXT,
+        field: 'catch_phrase',
+        allowNull: false,
+      },
     },
     {
       sequelize,
       modelName: 'Hero',
+      underscored: true,
     }
   );
   return Hero;
