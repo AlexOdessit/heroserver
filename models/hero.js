@@ -19,9 +19,13 @@ module.exports = (sequelize, DataTypes) => {
   Hero.init(
     {
       nickname: {
-        type: DataTypes.STRING(10),
+        type: DataTypes.STRING(24),
         allowNull: false,
         unique: true,
+        validate: {
+          notEmpty: true,
+          notNull: true,
+        },
       },
       realName: {
         type: DataTypes.STRING(24),

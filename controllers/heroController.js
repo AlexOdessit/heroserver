@@ -1,6 +1,11 @@
+const { Hero } = require('../models');
+
 module.exports.createHero = async (req, res, next) => {
   try {
-    res.status(201).send('user created');
+    const { body } = req;
+    const hero = Hero.create(body);
+    console.log(hero);
+    res.status(200).send(hero);
   } catch (error) {
     next(error);
   }
@@ -14,7 +19,7 @@ module.exports.getHero = async (req, res, next) => {
 };
 module.exports.getHeros = async (req, res, next) => {
   try {
-    res.status(201).send('full user list');
+    res.status(200).send('full user list');
   } catch (error) {
     next(error);
   }

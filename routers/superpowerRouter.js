@@ -1,2 +1,2 @@
-const superpowerRouter = require.require(express).Router();
+const superpowerRouter = require('express').Router();
 module.exports = superpowerRouter;

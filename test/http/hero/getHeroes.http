@@ -1,0 +1,3 @@
+GET http://localhost:5000/heroes
+
+Content-Type: application/json
