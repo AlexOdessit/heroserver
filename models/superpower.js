@@ -20,13 +20,19 @@ module.exports = (sequelize, DataTypes) => {
     {
       powerName: {
         type: DataTypes.STRING,
+        field: 'powername',
         allowNull: false,
         unique: true,
+        validate: {
+          notEmpty: true,
+          notNull: true,
+        },
       },
     },
     {
       sequelize,
       modelName: 'Superpower',
+      tableName: 'superpowers',
     }
   );
   return Superpower;

@@ -28,6 +28,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         field: 'realname',
         unique: true,
+        validate: {
+          notEmpty: true,
+          notNull: true,
+        },
       },
 
       originDescription: {
@@ -45,6 +49,7 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: 'Hero',
       underscored: true,
+      tableName: 'heroes',
     }
   );
   return Hero;
