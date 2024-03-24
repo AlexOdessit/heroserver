@@ -12,6 +12,7 @@ module.exports = {
       powerName: {
         type: Sequelize.TEXT,
         allowNull: false,
+        field: 'powername',
         unique: true,
       },
       createdAt: {

@@ -43,7 +43,7 @@ module.exports = {
       superpower_id: {
         type: Sequelize.INTEGER,
         field: 'superpower_id',
-        allowNull: true,
+        allowNull: false,
         references: {
           model: {
             tableName: 'superpowers',
