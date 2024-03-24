@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Heros', {
+    await queryInterface.createTable('heroes', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,7 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       nickname: {
-        type: Sequelize.STRING(10),
+        type: Sequelize.STRING(24),
         allowNull: false,
         unique: true,
       },
@@ -33,14 +33,27 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        field: 'created_at',
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        field: 'updated_at',
+      },
+      superpower_id: {
+        type: Sequelize.INTEGER,
+        field: 'superpower_id',
+        allowNull: true,
+        references: {
+          model: {
+            tableName: 'superpowers',
+          },
+          key: 'id',
+        },
       },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Heros');
+    await queryInterface.dropTable('heroes');
   },
 };

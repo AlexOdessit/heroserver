@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Superpower.hasMany(models.Hero, {
-        foreignKey: 'heroId',
+        foreignKey: 'superpower_id',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       });

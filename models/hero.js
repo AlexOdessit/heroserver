@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Hero.belongsTo(models.Superpower, {
-        foreignKey: 'heroId',
+        foreignKey: 'superpower_id',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       });

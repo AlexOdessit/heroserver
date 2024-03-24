@@ -3,10 +3,11 @@ const { Hero } = require('../models');
 module.exports.createHero = async (req, res, next) => {
   try {
     const { body } = req;
-    const hero = Hero.create(body);
+    const hero = await Hero.create(body);
     console.log(hero);
     res.status(200).send(hero);
   } catch (error) {
+    console.log(error);
     next(error);
   }
 };

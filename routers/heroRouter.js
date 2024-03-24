@@ -3,8 +3,8 @@ const heroController = require('../controllers/heroController');
 
 heroRouter.post('/', heroController.createHero);
 heroRouter.get('/', heroController.getHeros);
-heroRouter.get('/:heroId', heroController.getHero);
-heroRouter.put('/:heroId', heroController.updateHero);
-heroRouter.delete('/:heroId', heroController.deleteHero);
+heroRouter.get('/:id', heroController.getHero);
+heroRouter.put('/:id', heroController.updateHero);
+heroRouter.delete('/:id', heroController.deleteHero);
 
 module.exports = heroRouter;
