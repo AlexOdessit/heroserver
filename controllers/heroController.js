@@ -4,9 +4,10 @@ module.exports.createHero = async (req, res, next) => {
   try {
     const { body } = req;
     const hero = await Hero.create(body);
+
     res.status(200).send(hero);
   } catch (error) {
-    next(error);
+    next(error.message);
   }
 };
 

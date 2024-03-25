@@ -15,6 +15,16 @@ module.exports = {
         field: 'powername',
         unique: true,
       },
+
+      description: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+        unique: true,
+        validate: {
+          notEmpty: true,
+          notNull: true,
+        },
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

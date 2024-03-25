@@ -20,7 +20,17 @@ module.exports = (sequelize, DataTypes) => {
     {
       powerName: {
         type: DataTypes.STRING,
-        field: 'powername',
+        field: 'power_name',
+        allowNull: false,
+        unique: true,
+        validate: {
+          notEmpty: true,
+          notNull: true,
+        },
+      },
+
+      description: {
+        type: DataTypes.TEXT,
         allowNull: false,
         unique: true,
         validate: {

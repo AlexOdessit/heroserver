@@ -1,0 +1,8 @@
+POST http://localhost:5000/heroes/1
+Content-Type: application/json
+
+{
+   "powerName":"Enhanced Reflexes",
+   "description":"extraordinary superpower. It's similar to having super-fast reflexes, helping him avoid attacks, move quickly, and always remain ahead of his enemies. Think if you were to catch a ball sans even looking – that's Batman, constantly on target and ready for action."
+
+}
