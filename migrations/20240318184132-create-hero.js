@@ -9,6 +9,21 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+
+      superpower_id: {
+        type: Sequelize.INTEGER,
+        field: 'superpower_id',
+        allowNull: true,
+        references: {
+          model: {
+            tableName: 'superpowers',
+          },
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+      },
+
       nickname: {
         type: Sequelize.STRING(24),
         allowNull: false,
@@ -30,6 +45,7 @@ module.exports = {
         field: 'catch_phrase',
         allowNull: false,
       },
+
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -39,20 +55,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
         field: 'updated_at',
-      },
-      superpower_id: {
-        type: Sequelize.INTEGER,
-        field: 'superpower_id',
-        allowNull: false,
-        references: {
-          model: {
-            tableName: 'superpowers',
-          },
-          key: 'id',
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
-        autoIncrement: true,
       },
     });
   },

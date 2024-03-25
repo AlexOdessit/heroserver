@@ -19,23 +19,32 @@ module.exports.getHero = async (req, res, next) => {
     next(error);
   }
 };
+
 module.exports.getHeroes = async (req, res, next) => {
   try {
-    res.status(200).send('full user list');
+    const heroes = await Hero.findAll();
+    res.status(200).send(heroes);
   } catch (error) {
     next(error);
   }
 };
+
 module.exports.updateHero = async (req, res, next) => {
   try {
-    res.send('user updated');
+    const { hero } = req;
+    const { body } = req;
+    await hero.update(body);
+    res.status(200).send('Hero updated successfully');
   } catch (error) {
     next(error);
   }
 };
+
 module.exports.deleteHero = async (req, res, next) => {
   try {
-    res.status(200).send('user deleted');
+    const { hero } = req;
+    await hero.destroy();
+    res.status(200).send('Hero deleted successfully');
   } catch (error) {
     next(error);
   }

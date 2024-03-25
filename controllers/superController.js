@@ -1,17 +1,13 @@
 const { Superpower } = require('../models');
 
-module.exports.createHero = async (req, res, next) => {
+module.exports.createSuperpower = async (req, res, next) => {
   try {
-    const hero = req;
-    const { powerName, description } = req.body;
-    const newSuperPower = await Superpower.create({
-      powerName,
-      description,
-    });
+    const { body, hero } = req;
+    const newSuperPower = await Superpower.create(body);
 
     await hero.addSuperpower(newSuperPower);
 
-    res.status(201).send(heroPower);
+    res.status(201).send({ data: newSuperPower });
   } catch (error) {
     next(error.message);
   }

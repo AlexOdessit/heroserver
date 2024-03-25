@@ -4,6 +4,6 @@ const superpowerRouter = require('./superpowerRouter.js');
 const router = express.Router();
 
 router.use('/heroes', heroRouter);
-router.use('/superpower', superpowerRouter);
+router.use('/superpowers', superpowerRouter);
 
 module.exports = router;

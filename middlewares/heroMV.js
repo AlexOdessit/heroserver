@@ -12,6 +12,7 @@ module.exports.findHero = async (req, res, next) => {
       error.statusCode = 404;
       throw error;
     }
+
     req.hero = hero;
     next();
   } catch (error) {
