@@ -9,6 +9,21 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+
+      heroID: {
+        type: Sequelize.INTEGER,
+        field: 'hero_id',
+        allowNull: false,
+        references: {
+          model: {
+            tableName: 'heroes',
+          },
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+      },
+
       powerName: {
         type: Sequelize.TEXT,
         allowNull: false,

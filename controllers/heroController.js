@@ -31,8 +31,8 @@ module.exports.getHeroes = async (req, res, next) => {
 
 module.exports.updateHero = async (req, res, next) => {
   try {
-    const { hero } = req;
-    const { body } = req;
+    const { hero, body } = req;
+
     await hero.update(body);
     res.status(200).send('Hero updated successfully');
   } catch (error) {

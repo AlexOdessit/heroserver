@@ -3,10 +3,10 @@ const { Hero } = require('../models/hero');
 module.exports.findHero = async (req, res, next) => {
   try {
     const {
-      params: { superpower_id },
+      params: { heroID },
     } = req;
 
-    const hero = await Hero.findByPk(superpower_id);
+    const hero = await Hero.findByPk(heroID);
     if (!hero) {
       const error = new Error('Hero not found');
       error.statusCode = 404;

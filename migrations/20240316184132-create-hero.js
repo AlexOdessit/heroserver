@@ -10,20 +10,6 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
 
-      superpower_id: {
-        type: Sequelize.INTEGER,
-        field: 'superpower_id',
-        allowNull: true,
-        references: {
-          model: {
-            tableName: 'superpowers',
-          },
-          key: 'id',
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
-      },
-
       nickname: {
         type: Sequelize.STRING(24),
         allowNull: false,
