@@ -2,17 +2,9 @@ POST http://localhost:3000/heroes
 Content-Type: application/json
 
 {
-  "nickname" : "Batman",
-  "realName" : "Bruce Wayne",
-  "originDescription" : "TEXT",
-  "catchPhrase" : "TEXT"
-},
-
-
-{
   "nickname" : "Robin",
-  "realName" : "Timothy Drak",
-  "originDescription" : "crimefighter that works with Batman",
-  "catchPhrase" : "gota ya"
-},
+  "realName" : "Timothy Drake",
+  "originDescription" : "Batman's fight partner",
+  "catchPhrase" : "hoooyeaaah"
+}
 

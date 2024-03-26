@@ -1,6 +1,6 @@
 const { Superpower } = require('../models');
 
-module.exports.heroSuperpower = async (req, res, next) => {
+module.exports.createSuperpower = async (req, res, next) => {
   try {
     const { body, hero } = req;
     const superpower = await hero.createSuperpower(body);
