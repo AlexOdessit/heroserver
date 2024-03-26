@@ -5,7 +5,7 @@ const superController = require('../controllers/superController');
 superpowerRouter.post(
   '/:heroId/superpowers',
   findHero,
-  superController.createSuperpower
+  superController.heroSuperpower
 );
 
 module.exports = superpowerRouter;

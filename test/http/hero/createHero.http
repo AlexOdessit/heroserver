@@ -6,4 +6,13 @@ Content-Type: application/json
   "realName" : "Bruce Wayne",
   "originDescription" : "TEXT",
   "catchPhrase" : "TEXT"
-}
+},
+
+
+{
+  "nickname" : "Robin",
+  "realName" : "Timothy Drak",
+  "originDescription" : "crimefighter that works with Batman",
+  "catchPhrase" : "gota ya"
+},
+
