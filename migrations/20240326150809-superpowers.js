@@ -1,4 +1,5 @@
 'use strict';
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -10,14 +11,12 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
 
-      heroID: {
+      heroId: {
         type: Sequelize.INTEGER,
         field: 'hero_id',
         allowNull: false,
         references: {
-          model: {
-            tableName: 'heroes',
-          },
+          model: 'heroes',
           key: 'id',
         },
         onUpdate: 'CASCADE',
@@ -52,6 +51,7 @@ module.exports = {
       },
     });
   },
+
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('superpowers');
   },

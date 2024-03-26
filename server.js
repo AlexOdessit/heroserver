@@ -6,7 +6,7 @@ app.use(express.json());
 app.use(router);
 app.use(basicErrorHandler);
 
-const PORT = 5000;
+const PORT = 3000;
 const HOST = 'localhost';
 
 app.listen(PORT, HOST, () => {

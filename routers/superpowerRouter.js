@@ -1,8 +1,11 @@
-const express = require('express');
-const superpowerRouter = express.Router();
-const superController = require('../controllers/superController');
+const superpowerRouter = require('express').Router();
 const { findHero } = require('../middlewares/heroMV');
+const superController = require('../controllers/superController');
 
-superpowerRouter.post('/', findHero, superController.createSuperpower);
+superpowerRouter.post(
+  '/:heroId/superpowers',
+  findHero,
+  superController.createSuperpower
+);
 
 module.exports = superpowerRouter;

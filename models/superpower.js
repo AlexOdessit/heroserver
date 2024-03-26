@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Superpower.belongsTo(models.Hero, {
-        foreignKey: 'heroID',
+        foreignKey: 'heroId',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       });
@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       powerName: {
         type: DataTypes.STRING,
-        field: 'power_name',
+        field: 'powername',
         allowNull: false,
         unique: true,
         validate: {
@@ -43,6 +43,7 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: 'Superpower',
       tableName: 'superpowers',
+      underscored: true,
     }
   );
   return Superpower;

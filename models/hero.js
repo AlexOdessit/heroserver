@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Hero.hasMany(models.Superpower, {
-        foreignKey: 'heroID',
+        foreignKey: 'heroId',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       });
@@ -52,8 +52,8 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'Hero',
-      underscored: true,
       tableName: 'heroes',
+      underscored: true,
     }
   );
   return Hero;
