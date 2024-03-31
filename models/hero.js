@@ -14,6 +14,13 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       });
+
+      Hero.belongsToMany(models.Image, {
+        through: 'heroes_to_images',
+        foreignKey: 'heroId',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+      });
     }
   }
   Hero.init(
