@@ -1,0 +1,9 @@
+POST http://localhost:3000/heroes/1/images
+Content-Type: multipart/form-data
+
+
+{
+  "imageTitle" : "Batman's Gallery",
+  "imagePath" : "trytytyytty",
+
+}

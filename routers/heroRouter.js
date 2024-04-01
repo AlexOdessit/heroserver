@@ -7,5 +7,6 @@ heroRouter.get('/', heroController.getHeroes);
 heroRouter.get('/:heroId', findHero, heroController.getHero);
 heroRouter.put('/:heroId', findHero, heroController.updateHero);
 heroRouter.delete('/:heroId', findHero, heroController.deleteHero);
+heroRouter.use('/:heroId/images', findHero, heroController.addImage);
 
 module.exports = heroRouter;
