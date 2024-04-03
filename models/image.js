@@ -21,7 +21,6 @@ module.exports = (sequelize, DataTypes) => {
       imagePath: {
         type: DataTypes.STRING,
         field: 'image_path',
-        unique: true,
         validate: {
           notEmpty: true,
         },
@@ -30,7 +29,6 @@ module.exports = (sequelize, DataTypes) => {
       imageTitle: {
         type: DataTypes.STRING,
         field: 'image_title',
-        unique: true,
         validate: {
           notEmpty: true,
         },

@@ -1,4 +1,4 @@
-const { Hero } = require('../models');
+const { Hero, Image } = require('../models');
 
 module.exports.findHero = async (req, res, next) => {
   try {

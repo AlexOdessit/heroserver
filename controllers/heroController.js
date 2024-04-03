@@ -10,12 +10,20 @@ module.exports.createHero = async (req, res, next) => {
     next(error);
   }
 };
-
-module.exports.addImage = async (req, res, next) => {
+module.exports.addImageGallery = async (req, res, next) => {
   try {
-    const { body, hero } = req;
-    const imageGallery = await hero.addImages(body);
-    res.status(200).send(imageGallery);
+    const { hero, body, files } = req;
+    const imageData = files.map((file) => {
+      return {
+        ...body,
+        imagePath: file.filename,
+        imageTitle: file.originalname,
+      };
+    });
+    const createdImages = await Image.bulkCreate(imageData);
+
+    await hero.addImages(createdImages);
+    res.status(201).send(createdImages);
   } catch (error) {
     next(error);
   }
@@ -44,7 +52,7 @@ module.exports.updateHero = async (req, res, next) => {
     const { hero, body } = req;
 
     await hero.update(body);
-    res.status(200).send('Hero updated successfully');
+    res.status(201).send('Hero updated successfully');
   } catch (error) {
     next(error);
   }
@@ -54,7 +62,7 @@ module.exports.deleteHero = async (req, res, next) => {
   try {
     const { hero } = req;
     await hero.destroy();
-    res.status(200).send('Hero deleted successfully');
+    res.status(201).send('Hero deleted successfully');
   } catch (error) {
     next(error);
   }
