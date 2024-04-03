@@ -1,7 +1,7 @@
 const heroRouter = require('express').Router();
+const imageUpoad = require('../utils/imageUpload');
 const heroController = require('../controllers/heroController');
 const { findHero } = require('../middlewares/heroMV');
-const imageUpoad = require('../utils/imageUpload');
 
 heroRouter.post('/', heroController.createHero);
 heroRouter.get('/', heroController.getHeroes);

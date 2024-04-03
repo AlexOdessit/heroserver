@@ -10,6 +10,18 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
 
+      heroId: {
+        type: Sequelize.INTEGER,
+        field: 'hero_id',
+        allowNull: false,
+        references: {
+          model: 'heroes',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+      },
+
       imagePath: {
         type: Sequelize.STRING,
         field: 'image_path',

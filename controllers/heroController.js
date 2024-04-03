@@ -13,17 +13,20 @@ module.exports.createHero = async (req, res, next) => {
 module.exports.addImageGallery = async (req, res, next) => {
   try {
     const { hero, body, files } = req;
-    const imageData = files.map((file) => {
-      return {
+
+    const imageDataArray = [];
+
+    for (const file of files) {
+      const imageData = {
         ...body,
         imagePath: file.filename,
         imageTitle: file.originalname,
       };
-    });
-    const createdImages = await Image.bulkCreate(imageData);
+      await hero.createImage(imageData);
+      imageDataArray.push(imageData);
+    }
 
-    await hero.addImages(createdImages);
-    res.status(201).send(createdImages);
+    res.status(201).send(imageDataArray);
   } catch (error) {
     next(error);
   }
